@@ -26,6 +26,14 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		   
 		   String email = request.getParameter("email");
 		   String mdps = request.getParameter("password");
+	
+		   /* Création ou récupération de la session */
+		   HttpSession session = request.getSession();
+
+		   /* Mise en session d'une chaîne de caractères */
+		   session.setAttribute( "email", email );
+	
+	
 		    try {
 				if (isMember(email,mdps)) {
 					request.setAttribute( "message", "ok" );
